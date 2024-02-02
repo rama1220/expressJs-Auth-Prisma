@@ -1,9 +1,5 @@
-import {
-    faker
-} from '@faker-js/faker';
-import {
-    PrismaClient
-} from '@prisma/client';
+import {faker} from '@faker-js/faker';
+import prisma from '../prisma.js';
 import bcrypt from 'bcrypt';
 import {
     config
@@ -11,8 +7,6 @@ import {
 
 
 config();
-
-const prisma = new PrismaClient();
 const bcryptRound = Number(process.env.BCRYPT_ROUND);
 async function main() {
     await prisma.user.deleteMany({});
