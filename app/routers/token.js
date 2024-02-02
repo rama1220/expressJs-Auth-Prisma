@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import {validateTokenRequest} from '../../middleware/validators.js';
+import {validateTokenRequest} from '../../validators/validators.js';
 import createToken from '../createToken.js';
 import prisma from '../prisma.js';
 const router = Router();
