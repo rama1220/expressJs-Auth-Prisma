@@ -15,6 +15,12 @@ async function createToken(req, res) {
         });
     }
 
+    if (user.is_blocked) {
+        return res.status(401).json({
+            message: 'User is blocked',
+        })
+    }
+
     const validPassword = bcrypt.compareSync(req.body.password, user.password);
 
     if (!validPassword) {
